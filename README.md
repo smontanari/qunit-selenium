@@ -31,6 +31,8 @@ If you wish to use a different driver, or to customise your driver behaviour you
 
 This command will open the QUnit test page at the given url and wait for the  tests to complete before collecting and displaying the test run results. If the tests do not complete within the given timeout (by default it's 10 seconds) Selenium will raise an error and the command will fail.
 
+More in general, if any error is raised by Selenium which would cause a premature end of the test run, the program will generate a screenshot of the error page (file `qunit-selenium-error.png`).
+
 Example:
 
     $ qunit-selenium --timeout 20 --screenshot mytests.png http://myserver/tests
