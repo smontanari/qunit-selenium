@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+require 'qunit/selenium/cli'
+
+QUnit::Selenium::Cli.start(ARGV)

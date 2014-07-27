@@ -1,0 +1,45 @@
+PATH
+  remote: .
+  specs:
+    qunit-selenium (0.0.1)
+      selenium-webdriver
+      thor
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    childprocess (0.5.3)
+      ffi (~> 1.0, >= 1.0.11)
+    diff-lcs (1.2.5)
+    ffi (1.9.3)
+    multi_json (1.10.1)
+    rake (10.3.2)
+    rspec (3.0.0)
+      rspec-core (~> 3.0.0)
+      rspec-expectations (~> 3.0.0)
+      rspec-mocks (~> 3.0.0)
+    rspec-core (3.0.3)
+      rspec-support (~> 3.0.0)
+    rspec-expectations (3.0.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.0.0)
+    rspec-mocks (3.0.3)
+      rspec-support (~> 3.0.0)
+    rspec-support (3.0.3)
+    rubyzip (1.1.6)
+    selenium-webdriver (2.42.0)
+      childprocess (>= 0.5.0)
+      multi_json (~> 1.0)
+      rubyzip (~> 1.0)
+      websocket (~> 1.0.4)
+    thor (0.19.1)
+    websocket (1.0.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler
+  qunit-selenium!
+  rake
+  rspec (~> 3.0)
