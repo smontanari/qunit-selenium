@@ -3,18 +3,6 @@ require 'qunit/selenium/test_runner'
 module QUnit
   module Selenium
     describe TestRunner do
-      shared_context 'not force a page refresh' do
-        before do
-          expect(driver).to_not receive(:navigate)
-        end
-      end
-
-      shared_context 'force page refresh' do
-        before do
-          expect(driver).to receive_message_chain(:navigate, :refresh)
-        end
-      end
-
       shared_examples 'open test page' do |timeout|
         let(:test_run) {double('test_run')}
         let(:wait) {double('wait')}
@@ -42,14 +30,12 @@ module QUnit
         context 'default options' do
           let(:subject) {TestRunner.new(driver).open('test_url')}
 
-          include_context 'not force a page refresh'
           include_examples 'open test page', 10
         end
 
         context 'custom options' do
-          let(:subject) {TestRunner.new(driver).open('test_url', timeout: 30, force_refresh: true)}
+          let(:subject) {TestRunner.new(driver).open('test_url', timeout: 30)}
 
-          include_context 'force page refresh'
           include_examples 'open test page', 30
         end
       end

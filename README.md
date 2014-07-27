@@ -25,7 +25,7 @@ _By default qunit-selenium will use a *FirefoxDriver* instantiated with a new pr
 
 ### Command line
 
-  	$ qunit-selenium [--timeout=seconds] [--force_refresh] [--screenshot=FILE] URL
+  	$ qunit-selenium [--timeout=seconds] [--screenshot=FILE] URL
 
 This command will open the given url and wait for the QUnit tests to complete before collecting and displaying the test run results.
 
@@ -41,7 +41,7 @@ require 'qunit/selenium/test_runner'
 driver = ::Selenium::WebDriver.for :firefox
 url = 'http://test.server.com:8080'
 
-result = QUnit::Selenium::TestRunner.new(driver).open(url, timeout: 5, force_refresh: true)
+result = QUnit::Selenium::TestRunner.new(driver).open(url, timeout: 30)
 
 puts "Total tests: #{result.tests[:total]}"
 puts "Passed:      #{result.tests[:passed]}"

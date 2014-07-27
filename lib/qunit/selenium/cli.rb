@@ -7,14 +7,13 @@ module QUnit
     class Cli < Thor
       desc "open URL", %{Run qunit tests at the specified URL}
       option :timeout, type: :numeric, default: 10, desc: "Timeout in seconds to wait for the tests to complete (default is 10)"
-      option :force_refresh, type: :boolean, default: false, desc: "Force a refresh of the page after it's loaded (default is false)"
       option :screenshot, banner: 'FILE', default: nil, desc: "Save a screenshot of the page to the specified FILE after the tests complete"
 
       def open(url)
         profile = ::Selenium::WebDriver::Firefox::Profile.new
         driver = ::Selenium::WebDriver.for :firefox, profile: profile
 
-        test_result = TestRunner.new(driver).open(url, timeout: options[:timeout], force_refresh: options[:force_refresh])
+        test_result = TestRunner.new(driver).open(url, timeout: options[:timeout])
         driver.save_screenshot options[:screenshot] if options[:screenshot]
         driver.quit
 
