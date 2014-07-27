@@ -8,12 +8,12 @@ Ruby QUnit test runner for Selenium WebDriver
 In your Gemfile:
 
 ```ruby
-gem 'qunit-runner'
+gem 'qunit-selenium'
 ```
 
 Or in your ruby gems:
 
-  $ gem install qunit-runner
+    $ gem install qunit-selenium
 
 ## Pre-requisites
 This gem is a wrapper around the [selenium-webdriver](http://rubygems.org/gems/selenium-webdriver) gem.
@@ -25,13 +25,13 @@ _By default qunit-selenium will use a *FirefoxDriver* instantiated with a new pr
 
 ### Command line
 
-  	$ qunit-selenium [--timeout=seconds] [--screenshot=FILE] URL
+    $ qunit-selenium [--timeout=seconds] [--screenshot=FILE] URL
 
 This command will open the given url and wait for the QUnit tests to complete before collecting and displaying the test run results.
 
 Example:
 
-  	$ qunit-selenium --timeout 20 --screenshot mytests.png
+    $ qunit-selenium --timeout 20 --screenshot mytests.png
 
 ### Through the API
 
