@@ -6,9 +6,9 @@ module QUnit
   module Selenium
     class Cli < Thor
       desc "open URL", %{Run qunit tests at the specified URL}
-      option :timeout, type: :numeric, default: 10, desc: "Timeout in seconds to wait for the tests to complete"
-      option :force_refresh, type: :boolean, default: false, desc: "Force a refresh of the page after it's loaded"
-      option :screenshot, default: nil, desc: "Save a screenshot of the page to the specified file after the tests complete"
+      option :timeout, type: :numeric, default: 10, desc: "Timeout in seconds to wait for the tests to complete (default is 10)"
+      option :force_refresh, type: :boolean, default: false, desc: "Force a refresh of the page after it's loaded (default is false)"
+      option :screenshot, banner: 'FILE', default: nil, desc: "Save a screenshot of the page to the specified FILE after the tests complete"
 
       def open(url)
         profile = ::Selenium::WebDriver::Firefox::Profile.new
@@ -22,6 +22,8 @@ module QUnit
 
         exit(1) if test_result.assertions[:failed] > 0
       end
+
+      default_task :open
 
       private
 

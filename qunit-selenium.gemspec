@@ -6,8 +6,8 @@ require 'qunit/selenium/version'
 Gem::Specification.new do |gem|
   gem.name          = 'qunit-selenium'
   gem.version       = QUnit::Selenium::VERSION
-  gem.summary       = 'Run QUnit tests through Selenium'
-  gem.description   = 'Run QUnit tests through Selenium'
+  gem.summary       = 'Run QUnit tests through Selenium WebDriver'
+  gem.description   = 'Run QUnit tests through Selenium WebDriver'
   
   gem.authors       = ['Silvio Montanari']
   gem.homepage      = 'https://github.com/smontanari/qunit-selenium'
