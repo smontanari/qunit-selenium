@@ -13,13 +13,21 @@ module QUnit
         profile = ::Selenium::WebDriver::Firefox::Profile.new
         driver = ::Selenium::WebDriver.for :firefox, profile: profile
 
-        test_result = TestRunner.new(driver).open(url, timeout: options[:timeout])
-        driver.save_screenshot options[:screenshot] if options[:screenshot]
-        driver.quit
+        begin
+          test_result = TestRunner.new(driver).open(url, timeout: options[:timeout])
+          driver.save_screenshot options[:screenshot] if options[:screenshot]
 
-        print_report(test_result)
+          print_report(test_result)
 
-        exit(1) if test_result.assertions[:failed] > 0
+          error = test_result.assertions[:failed] > 0
+        rescue => e
+          puts "Error: #{e}"
+          driver.save_screenshot('qunit-selenium-error.png')
+          error = true
+        ensure
+          driver.quit
+        end
+        exit(1) if error
       end
 
       default_task :open
