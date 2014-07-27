@@ -11,6 +11,7 @@ Gem::Specification.new do |gem|
   
   gem.authors       = ['Silvio Montanari']
   gem.homepage      = 'https://github.com/smontanari/qunit-selenium'
+  gem.license       = 'MIT'
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}) { |f| File.basename(f) }
   gem.test_files    = gem.files.grep(%r{^spec/})

@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    qunit-selenium (0.0.1)
+    qunit-selenium (0.0.2)
       selenium-webdriver
       thor
 
