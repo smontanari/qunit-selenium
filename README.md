@@ -19,7 +19,7 @@ Or in your ruby gems:
 This gem is a wrapper around the [selenium-webdriver](http://rubygems.org/gems/selenium-webdriver) gem with the additional logic to parse the QUnit test results page and report the success/failure of your QUnit tests.
 Please refer to the selenium documentation for detail instructions and drivers/browsers support.
 
-*_By default qunit-selenium will use the Selenium *FirefoxDriver* instantiated with a new Firefox profile._*
+_By default qunit-selenium will use the Selenium **FirefoxDriver** instantiated with a new Firefox profile._
 
 If you wish to use a different driver, or to customise your driver behaviour you can still use qunit-selenium through its API (see below.)
 
@@ -38,6 +38,8 @@ Example:
     $ qunit-selenium --timeout 20 --screenshot mytests.png http://myserver/tests
 
 ### Ruby API
+
+Example:
 
 ```ruby
 require 'qunit/selenium/test_runner'
