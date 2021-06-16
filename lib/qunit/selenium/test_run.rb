@@ -1,7 +1,7 @@
 module QUnit
   module Selenium
     class TestRun
-      TestResult = Struct.new(:tests, :assertions, :duration)
+      TestResult = Struct.new(:tests, :assertions, :duration, :raw_output)
       ID_TESTRESULT = 'qunit-testresult'
       ID_TESTS = 'qunit-tests'
 
@@ -17,10 +17,14 @@ module QUnit
       def result
         assertions = {total: total_assertions, passed: passed_assertions, failed: failed_assertions}
         tests = {total: total_tests, passed: pass_tests, failed: fail_tests}
-        TestResult.new(tests, assertions, duration)
+        TestResult.new(tests, assertions, duration, raw_output)
       end
 
       private
+
+      def raw_output
+        @qunit_tests.text
+      end
 
       def duration
         match = /Tests completed in (?<milliseconds>\d+) milliseconds/.match @qunit_testresult.text
